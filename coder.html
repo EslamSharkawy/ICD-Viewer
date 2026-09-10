@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ICD-10 Coder Workbench</title>
+<meta name="description" content="Diagnosis and procedure coding in one place: the ICD-10-CM instructional notes with their inheritance, the ICD-10-PCS tables with a code builder, both sets of official coding guidelines, and plain-language explanations of the choices coders get wrong.">
+<link rel="stylesheet" href="assets/app.css">
+<link rel="stylesheet" href="assets/v2.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='26' font-size='26'>&#129535;</text></svg>">
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to the main content</a>
+
+<header class="topbar topbar-v2">
+  <div class="topbar-inner">
+    <a class="brand" href="#/">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <span class="brand-text">
+        <strong>Coder Workbench</strong>
+        <small>ICD-10-CM and ICD-10-PCS &middot; FY2027</small>
+      </span>
+    </a>
+
+    <div class="modeswitch" role="tablist" aria-label="Diagnosis or procedures">
+      <a role="tab" href="#/" data-mode="cm">
+        <span class="ms-top">Diagnosis</span><span class="ms-sub">ICD-10-CM</span>
+      </a>
+      <a role="tab" href="#/pcs" data-mode="pcs">
+        <span class="ms-top">Procedures</span><span class="ms-sub">ICD-10-PCS</span>
+      </a>
+    </div>
+
+    <div class="topbar-tools">
+      <label class="guided-toggle" title="Step-by-step: index first, then confirm in the tabular list">
+        <input type="checkbox" id="guided-switch">
+        <span class="switch" aria-hidden="true"></span>
+        <span class="guided-label">Walk me through it</span>
+      </label>
+
+      <button class="tool-btn" id="edition-btn" aria-haspopup="dialog">
+        <span class="tool-btn-top" id="edition-name">FY2027</span>
+        <span class="tool-btn-sub">Which edition?</span>
+      </button>
+
+      <button class="tool-btn icon-btn" id="saved-btn" title="Codes you have starred">&#9733;<span class="pill-count" id="saved-count">0</span></button>
+      <button class="tool-btn icon-btn" id="recent-btn" title="Codes you looked at recently">&#128336;</button>
+      <button class="tool-btn icon-btn" id="theme-btn" title="Switch between light and dark">&#9686;</button>
+    </div>
+  </div>
+
+  <nav class="subnav" id="subnav-cm" aria-label="Diagnosis sections">
+    <a href="#/" data-nav="home">Search</a>
+    <a href="#/browse" data-nav="browse">Chapters</a>
+    <a href="#/index" data-nav="index">Look up a condition</a>
+    <a href="#/neoplasm" data-nav="neoplasm">Growths</a>
+    <a href="#/drug" data-nav="drug">Substances</a>
+    <a href="#/check" data-nav="check">Check for conflicts</a>
+    <a href="#/cmguidelines" data-nav="cmguidelines">Guidelines</a>
+    <a href="#/whatsnew" data-nav="whatsnew">What's new</a>
+    <a href="#/glossary" data-nav="glossary">Glossary</a>
+  </nav>
+
+  <nav class="subnav" id="subnav-pcs" aria-label="Procedure sections" hidden>
+    <a href="#/pcs" data-nav="pcs">Search</a>
+    <a href="#/build" data-nav="build">Build a code</a>
+    <a href="#/pcstables" data-nav="pcstables">Tables</a>
+    <a href="#/pcsindex" data-nav="pcsindex">Index</a>
+    <a href="#/rootops" data-nav="rootops">Root operations</a>
+    <a href="#/decide" data-nav="decide">Which one do I pick?</a>
+    <a href="#/bodymaps" data-nav="bodymaps">Body maps</a>
+    <a href="#/keys" data-nav="keys">Reference keys</a>
+    <a href="#/pcsguidelines" data-nav="pcsguidelines">Guidelines</a>
+    <a href="#/pcswhatsnew" data-nav="pcswhatsnew">What's new</a>
+  </nav>
+
+  <div id="guided-bar" class="guided-bar" hidden></div>
+</header>
+
+<main id="main" class="main" tabindex="-1">
+  <div id="view" class="view"></div>
+</main>
+
+<footer class="footer">
+  <p>
+    Built from the official FY2027 ICD-10-CM and ICD-10-PCS release files, the ICD-10-CM and
+    ICD-10-PCS Official Guidelines for Coding and Reporting, and the CMS ICD-10-PCS Reference
+    Manual. Published by the National Center for Health Statistics and the Centers for
+    Medicare &amp; Medicaid Services. This is a study and reference aid, not coding advice.
+  </p>
+</footer>
+
+<div id="drawer" class="drawer" hidden>
+  <div class="drawer-panel" role="dialog" aria-modal="true" aria-labelledby="drawer-title">
+    <div class="drawer-head">
+      <h2 id="drawer-title"></h2>
+      <button class="drawer-close" id="drawer-close" aria-label="Close">&#10005;</button>
+    </div>
+    <div class="drawer-body" id="drawer-body"></div>
+  </div>
+  <div class="drawer-scrim" id="drawer-scrim"></div>
+</div>
+
+<div id="toast" class="toast" hidden></div>
+
+<script type="module" src="assets/js2/main2.js"></script>
+</body>
+</html>

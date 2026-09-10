@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ICD-10-CM Notes Explorer</title>
+<meta name="description" content="Read the instructional notes of the ICD-10-CM Tabular List, including the ones inherited from the chapter, block and category above a code.">
+<link rel="stylesheet" href="assets/app.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='26' font-size='26'>&#128209;</text></svg>">
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to the main content</a>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="#/">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <span class="brand-text">
+        <strong>Notes Explorer</strong>
+        <small>ICD-10-CM Tabular List and Index</small>
+      </span>
+    </a>
+
+    <nav class="topnav" aria-label="Main sections">
+      <a href="#/" data-nav="home">Search</a>
+      <a href="#/browse" data-nav="browse">Chapters</a>
+      <a href="#/index" data-nav="index">Look up a condition</a>
+      <a href="#/neoplasm" data-nav="neoplasm">Growths</a>
+      <a href="#/drug" data-nav="drug">Substances</a>
+      <a href="#/check" data-nav="check">Check for conflicts</a>
+      <a href="#/whatsnew" data-nav="whatsnew">What's new</a>
+      <a href="#/glossary" data-nav="glossary">Glossary</a>
+    </nav>
+
+    <div class="topbar-tools">
+      <label class="guided-toggle" title="Step-by-step: index first, then confirm in the tabular list">
+        <input type="checkbox" id="guided-switch">
+        <span class="switch" aria-hidden="true"></span>
+        <span class="guided-label">Walk me through it</span>
+      </label>
+
+      <button class="tool-btn" id="edition-btn" aria-haspopup="dialog">
+        <span class="tool-btn-top" id="edition-name">FY2027</span>
+        <span class="tool-btn-sub">Which edition?</span>
+      </button>
+
+      <button class="tool-btn icon-btn" id="saved-btn" title="Codes you have starred">★<span class="pill-count" id="saved-count">0</span></button>
+      <button class="tool-btn icon-btn" id="recent-btn" title="Codes you looked at recently">🕘</button>
+      <button class="tool-btn icon-btn" id="theme-btn" title="Switch between light and dark">◐</button>
+    </div>
+  </div>
+  <div id="guided-bar" class="guided-bar" hidden></div>
+</header>
+
+<main id="main" class="main" tabindex="-1">
+  <div id="view" class="view"></div>
+</main>
+
+<footer class="footer">
+  <p>
+    Built from the official ICD-10-CM FY2027 release files published by the
+    National Center for Health Statistics and the Centers for Medicare &amp; Medicaid Services.
+    This is a study and reference aid, not coding advice.
+  </p>
+</footer>
+
+<div id="drawer" class="drawer" hidden>
+  <div class="drawer-panel" role="dialog" aria-modal="true" aria-labelledby="drawer-title">
+    <div class="drawer-head">
+      <h2 id="drawer-title"></h2>
+      <button class="drawer-close" id="drawer-close" aria-label="Close">✕</button>
+    </div>
+    <div class="drawer-body" id="drawer-body"></div>
+  </div>
+  <div class="drawer-scrim" id="drawer-scrim"></div>
+</div>
+
+<div id="toast" class="toast" hidden></div>
+
+<script type="module" src="assets/js/main.js"></script>
+</body>
+</html>

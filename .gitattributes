@@ -1,2 +1,37 @@
-# Auto detect text files and perform LF normalization
+# Line endings.
+#
+# The default for authored files: git stores LF and checks out whatever suits
+# the platform.
 * text=auto
+
+# --- but not for anything we did not write. --------------------------------
+#
+# The official NCHS/CMS releases are stored verbatim. They are not consistent
+# with each other -- `icd10cm_order_2027.txt` ships CRLF while the code files
+# and every XML ship LF -- and normalising them would mean the file checked
+# out of this repo is not the file CMS published. `-text` tells git to leave
+# every byte alone in both directions.
+#
+# This is not fussiness. A CRLF that survives into a data file welds a stray
+# \r onto the last column of every row, which then becomes part of a code.
+# See the note on `rows()` and `write_text()` in CLAUDE.md.
+"Table and Index/*"    -text
+"Code Descriptions/*"  -text
+Guidelines/*           -text
+
+# The two single-file builds carry a gzipped, base64-encoded payload of the
+# whole data set. They must come back byte-for-byte identical to what
+# `build/bundle.py` and `build/bundle2.py` wrote.
+icd10cm-notes-explorer.html   -text
+icd10-coder-workbench.html    -text
+
+# Generated data is not committed (see .gitignore), but if it ever is, it is
+# tab-separated and must not be touched either.
+*.tsv   -text
+
+# Language hints, so GitHub reports the repo as what it is rather than as a
+# pile of XML.
+*.xml       linguist-vendored
+*.xsd       linguist-vendored
+*.txt       linguist-vendored
+*.html      linguist-detectable

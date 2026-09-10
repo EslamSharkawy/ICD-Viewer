@@ -1,0 +1,35 @@
+# ---------------------------------------------------------------- generated
+# Both data folders are built from the official source files in this repo by
+# `python build/build.py` and `python build/build_pcs.py`. They are large,
+# they change wholesale on every rebuild, and nothing in them is authored --
+# so they are rebuilt rather than committed. See README.md.
+data/
+data-pcs/
+
+# ------------------------------------------------------------------ archives
+# The downloaded CMS/NCHS release archives. Their contents are already
+# extracted into `Table and Index/` and `Code Descriptions/`, so keeping the
+# zips as well would double 32 MB for nothing.
+*.zip
+
+# ------------------------------------------------- large human-reading PDFs
+# The official releases ship each file twice: as XML/TXT, which the builds
+# read, and as a PDF for a human to read. The PDFs come to about 126 MB and no
+# build script opens one of them.
+#
+# `Guidelines/` is deliberately NOT ignored -- those three PDFs are the only
+# source for the Official Guidelines text and `build/build_pcs.py` reads them.
+Table and Index/*.pdf
+Code Descriptions/*.pdf
+
+# ------------------------------------------------------------------ scratch
+# A clone of this same repository was made inside the project folder before it
+# was set up in place. Nothing in it is needed.
+ICD-Viewer/
+
+# --------------------------------------------------------------- housekeeping
+Thumbs.db
+desktop.ini
+.DS_Store
+__pycache__/
+*.pyc
